@@ -27,7 +27,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @SpringBootApplication(scanBasePackages = {"com.tabuyos.microservice.oops.gateway"})
 @EnableDiscoveryClient
 public class OopsGatewayApplication {
-
   public static void main(String[] args) {
     SpringApplication.run(OopsGatewayApplication.class, args);
   }
