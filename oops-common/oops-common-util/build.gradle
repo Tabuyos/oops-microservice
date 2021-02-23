@@ -1,0 +1,22 @@
+dependencies {
+  implementation("org.springframework.boot:spring-boot-starter-web")
+  implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml")
+  implementation("org.springframework.boot:spring-boot-starter-log4j2")
+  implementation("cn.hutool:hutool-all:5.5.1")
+  implementation("com.fasterxml.jackson.core:jackson-annotations")
+  implementation("com.fasterxml.jackson.core:jackson-databind")
+  implementation("org.apache.commons:commons-lang3:3.11")
+  implementation("ch.qos.logback:logback-classic")
+  implementation("commons-codec:commons-codec:1.15")
+  implementation("org.codehaus.jackson:jackson-smile:1.9.13")
+  implementation("org.codehaus.jackson:jackson-core-asl:1.9.13")
+  implementation("org.codehaus.jackson:jackson-mapper-asl:1.9.13")
+  implementation("commons-beanutils:commons-beanutils:1.9.3")
+  implementation("com.google.guava:guava:30.1-jre")
+}
+
+configurations {
+  all {
+    implementation.exclude group: "org.springframework.boot", module: "spring-boot-starter-logging"
+  }
+}

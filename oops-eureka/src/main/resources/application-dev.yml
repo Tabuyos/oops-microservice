@@ -1,0 +1,19 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: oops-eureka
+  security:
+    user:
+      name: root
+      password: root
+
+eureka:
+  server:
+    enableSelfPreservation: true
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${spring.application.name}:${server.port}/eureka

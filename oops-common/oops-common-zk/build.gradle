@@ -1,0 +1,12 @@
+dependencies {
+  implementation("org.aspectj:aspectjweaver")
+  implementation("org.mybatis:mybatis:3.4.2")
+  implementation("org.apache.curator:curator-framework")
+  implementation("org.apache.curator:curator-client")
+  implementation("org.apache.curator:curator-recipes")
+  implementation("com.alibaba:fastjson:1.2.29")
+  implementation("org.apache.commons:commons-lang3")
+  implementation(project(":oops-common:oops-common-base"))
+  implementation(project(":oops-common:oops-common-util"))
+  implementation(project(":oops-common:oops-common-config"))
+}

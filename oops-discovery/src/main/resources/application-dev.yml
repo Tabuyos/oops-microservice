@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: oops-discovery
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+      exclude: WEB-INF/**
+    livereload:
+      port: 35735
+  rabbitmq:
+    host: oops-mq-rabbit
+    port: 5672
+    username: guest
+    password: guest
+  security:
+    user:
+      name: root
+      password: root
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${HOME}/tabuyos/git-home/config
+          default-label: main
+        default-label: main
+        default-profile: default
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://root:root@oops-eureka:8761/eureka/
+    enabled: true
+  instance:
+    instanceId: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}

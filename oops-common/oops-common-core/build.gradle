@@ -1,0 +1,36 @@
+dependencies {
+  implementation("org.springframework.boot:spring-boot-starter-web")
+  implementation("com.fasterxml.jackson.core:jackson-databind")
+  implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml")
+  implementation("org.springframework.boot:spring-boot-starter-log4j2")
+  implementation("cn.hutool:hutool-all:5.5.1")
+  implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
+  implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
+  implementation("tk.mybatis:mapper:3.4.0")
+  implementation("eu.bitwalker:UserAgentUtils:1.20")
+  implementation("com.google.guava:guava:30.1-jre")
+  implementation("org.aspectj:aspectjweaver")
+  implementation("org.mybatis:mybatis:3.4.2")
+  implementation("org.apache.rocketmq:rocketmq-client:4.1.0-incubating")
+  implementation("org.springframework.boot:spring-boot-starter-data-redis")
+  implementation("redis.clients:jedis:3.5.1")
+  implementation("io.springfox:springfox-swagger2:2.6.1")
+  implementation("org.springframework.boot:spring-boot-configuration-processor")
+  implementation("org.springframework.cloud:spring-cloud-starter-loadbalancer")
+  implementation("com.fasterxml.jackson.module:jackson-module-parameter-names")
+  implementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8")
+  implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
+  implementation("io.jsonwebtoken:jjwt:0.7.0")
+  implementation("com.arronlong.httpclientutil:httpclientutil:1.0")
+  implementation("com.netflix.hystrix:hystrix-core:1.5.10")
+  implementation(project(":oops-common:oops-common-base"))
+  implementation(project(":oops-common:oops-common-util"))
+  implementation(project(":oops-common:oops-common-config"))
+  implementation(project(":oops-common:oops-common-zk"))
+}
+
+configurations {
+  all {
+    implementation.exclude group: "org.springframework.boot", module: "spring-boot-starter-logging"
+  }
+}
