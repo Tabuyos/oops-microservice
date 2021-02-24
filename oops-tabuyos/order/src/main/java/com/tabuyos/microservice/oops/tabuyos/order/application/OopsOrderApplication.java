@@ -6,6 +6,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.Disposable;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 /**
  * <p>Description: </p>
@@ -39,5 +42,20 @@ public class OopsOrderApplication {
   @GetMapping("index")
   public String index() {
     return "Hello tabuyos from order.";
+  }
+
+  @GetMapping("sayHello")
+  public String sayHello() {
+    return "you can see the message.";
+  }
+
+  @GetMapping("monoFallback")
+  public Mono<String> monoFallback() {
+    return Mono.just("monoFallback");
+  }
+
+  @GetMapping("fluxFallback")
+  public Flux<String> fluxFallback() {
+    return Flux.just("fluxFallback0", "fluxFallback1", "fluxFallback2");
   }
 }

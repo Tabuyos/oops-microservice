@@ -4,6 +4,15 @@ server:
 spring:
   application:
     name: oops-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: test
+          uri: lb://oops-tabuyos-order
+          predicates:
+            - Path=/tabuyos/order/**
+          filters:
+            - StripPrefix=1
   devtools:
     restart:
       enabled: true

@@ -26,7 +26,8 @@ import org.springframework.context.annotation.Configuration;
  * @since 0.1.0 - 2/23/21 3:52 PM
  */
 @Configuration
-public class TestRoute {
+public class TabuyosRoute {
+
   @Bean
   public RouteLocator kiteRouteLocator(RouteLocatorBuilder builder) {
     return builder
@@ -40,6 +41,10 @@ public class TestRoute {
             r -> r.path("/test/order/**")
                   .filters(
                       f -> f.stripPrefix(1))
+                  .uri("lb://oops-tabuyos-order"))
+        .route("redirect",
+            p -> p.path("/redirect/**")
+                  .filters(g -> g.addResponseHeader("tabuyos", "tabuyos").redirect(302, "https://www.baidu.com"))
                   .uri("lb://oops-tabuyos-order"))
         .build();
   }
