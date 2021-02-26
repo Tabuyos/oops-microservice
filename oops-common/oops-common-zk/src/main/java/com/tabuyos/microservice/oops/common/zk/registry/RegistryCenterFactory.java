@@ -1,5 +1,7 @@
 package com.tabuyos.microservice.oops.common.zk.registry;
 
+import cn.hutool.crypto.digest.DigestAlgorithm;
+import cn.hutool.crypto.digest.Digester;
 import com.google.common.base.Charsets;
 import com.google.common.hash.HashCode;
 import com.google.common.hash.Hasher;
@@ -12,6 +14,7 @@ import com.tabuyos.microservice.oops.common.zk.registry.base.CoordinatorRegistry
 import com.tabuyos.microservice.oops.common.zk.registry.base.RegisterDto;
 import com.tabuyos.microservice.oops.common.zk.registry.zookeeper.ZookeeperRegistryCenter;
 
+import java.security.MessageDigest;
 import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -38,7 +41,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class RegistryCenterFactory {
 
 
-  private static final ConcurrentHashMap<HashCode, CoordinatorRegistryCenter> REG_CENTER_REGISTRY = new ConcurrentHashMap<>();
+  private static final ConcurrentHashMap<Integer, CoordinatorRegistryCenter> REG_CENTER_REGISTRY = new ConcurrentHashMap<>();
 
   /**
    * 创建注册中心.
@@ -48,8 +51,12 @@ public final class RegistryCenterFactory {
    * @return 注册中心对象 coordinator registry center
    */
   public static CoordinatorRegistryCenter createCoordinatorRegistryCenter(ZookeeperProperties zookeeperProperties) {
-    Hasher hasher = Hashing.md5().newHasher().putString(zookeeperProperties.getZkAddressList(), Charsets.UTF_8);
-    HashCode hashCode = hasher.hash();
+//    Hasher hasher = Hashing.md5().newHasher().putString(zookeeperProperties.getZkAddressList(), Charsets.UTF_8);
+//    HashCode hashCode = hasher.hash();
+
+    Digester sha512 = new Digester(DigestAlgorithm.SHA512);
+    String hex = sha512.digestHex(zookeeperProperties.getZkAddressList(), Charsets.UTF_8);
+    int hashCode = hex.hashCode();
     CoordinatorRegistryCenter result = REG_CENTER_REGISTRY.get(hashCode);
     if (null != result) {
       return result;

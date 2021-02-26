@@ -1,5 +1,7 @@
 package com.tabuyos.microservice.oops.common.util;
 
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,7 +43,7 @@ public class UrlUtil {
       return "";
     }
     try {
-      result = java.net.URLDecoder.decode(str, ENCODE);
+      result = URLDecoder.decode(str, ENCODE);
     } catch (UnsupportedEncodingException e) {
       log.error("URL解码失败 ex={}", e.getMessage(), e);
     }
@@ -55,7 +57,7 @@ public class UrlUtil {
       return "";
     }
     try {
-      result = java.net.URLEncoder.encode(str, ENCODE);
+      result = URLEncoder.encode(str, ENCODE);
     } catch (UnsupportedEncodingException e) {
       log.error("URL转码失败 ex={}", e.getMessage(), e);
     }

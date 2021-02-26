@@ -35,6 +35,7 @@ public class BusinessException extends RuntimeException {
   protected int code;
 
   public BusinessException() {
+    super();
   }
 
   public BusinessException(Throwable cause) {

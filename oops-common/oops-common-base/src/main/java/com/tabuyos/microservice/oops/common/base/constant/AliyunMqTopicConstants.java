@@ -2,7 +2,6 @@ package com.tabuyos.microservice.oops.common.base.constant;
 
 import cn.hutool.core.util.StrUtil;
 import com.google.common.collect.Lists;
-import org.springframework.boot.actuate.autoconfigure.cloudfoundry.AccessLevel;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
@@ -210,10 +209,9 @@ public class AliyunMqTopicConstants {
   }
 
   private static String buildOpcConsumerTopics() {
-    List<TopicObj> topicObjList = new ArrayList<>();
-
     Set<String> sendSmsTagList = new HashSet<>();
     sendSmsTagList.add(MqTagEnum.REGISTER_USER_AUTH_CODE.getTag());
+
     Set<String> sendEmailTagList = new HashSet<>();
     sendEmailTagList.add(MqTagEnum.FORGOT_PASSWORD_AUTH_CODE.getTag());
     sendEmailTagList.add(MqTagEnum.ACTIVE_USER.getTag());
@@ -221,6 +219,7 @@ public class AliyunMqTopicConstants {
     sendEmailTagList.add(MqTagEnum.RESET_LOGIN_PWD.getTag());
     sendEmailTagList.add(MqTagEnum.RESET_USER_EMAIL.getTag());
 
+    List<TopicObj> topicObjList = new ArrayList<>();
     topicObjList.add(new TopicObj(MqTopicEnum.SEND_SMS_TOPIC.getTopic(), sendSmsTagList));
     topicObjList.add(new TopicObj(MqTopicEnum.SEND_EMAIL_TOPIC.getTopic(), sendEmailTagList));
 

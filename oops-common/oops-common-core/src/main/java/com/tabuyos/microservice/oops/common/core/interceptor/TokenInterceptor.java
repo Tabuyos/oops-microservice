@@ -50,7 +50,7 @@ public class TokenInterceptor implements HandlerInterceptor {
 
   private final Logger log = LoggerFactory.getLogger(TokenInterceptor.class);
 
-  @Value("${paascloud.oauth2.jwtSigningKey}")
+  @Value("${oops.oauth2.jwtSigningKey}")
   private String jwtSigningKey;
 
   @Resource private RedisTemplate<String, Object> redisTemplate;

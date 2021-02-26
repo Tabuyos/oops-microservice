@@ -34,7 +34,8 @@ import java.util.Date;
  * @since 0.1.0 - 2/22/21 1:29 PM
  */
 public class BaseEntity implements Serializable {
-  @Serial private static final long serialVersionUID = -8397010646054748343L;
+  @Serial
+  private static final long serialVersionUID = -8397010646054748343L;
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -69,11 +70,14 @@ public class BaseEntity implements Serializable {
   @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
   private Date updateTime;
 
-  @Transient private Integer pageNum;
+  @Transient
+  private Integer pageNum;
 
-  @Transient private Integer pageSize;
+  @Transient
+  private Integer pageSize;
 
-  @Transient private String orderBy;
+  @Transient
+  private String orderBy;
 
   /**
    * Is new boolean.

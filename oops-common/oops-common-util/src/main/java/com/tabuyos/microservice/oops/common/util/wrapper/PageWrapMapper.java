@@ -31,7 +31,7 @@ public class PageWrapMapper {
 	}
 
 	private static <E> PageWrapper<E> wrap(int code, String message, E o, PageUtil pageUtil) {
-		return new PageWrapper<E>(code, message, o, pageUtil);
+    return new PageWrapper<>(code, message, o, pageUtil);
 	}
 
 	/**

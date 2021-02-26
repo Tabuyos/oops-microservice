@@ -36,21 +36,21 @@ import java.text.SimpleDateFormat;
  */
 public class JacksonUtil {
 
-	private static ObjectMapper defaultMapper;
-	private static ObjectMapper formatedMapper;
+	private static final ObjectMapper OBJECT_MAPPER;
+	private static final ObjectMapper FORMATTED_MAPPER;
 
 	static {
 		// 默认的ObjectMapper
-		defaultMapper = new ObjectMapper();
+		OBJECT_MAPPER = new ObjectMapper();
 		// 设置输入时忽略在JSON字符串中存在但Java对象实际没有的属性
-		defaultMapper.configure(Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		OBJECT_MAPPER.configure(Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-		formatedMapper = new ObjectMapper();
+		FORMATTED_MAPPER = new ObjectMapper();
 		// 设置输入时忽略在JSON字符串中存在但Java对象实际没有的属性
-		formatedMapper.configure(Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		FORMATTED_MAPPER.configure(Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		// 所有日期格式都统一为固定格式
-		formatedMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
-		formatedMapper.configure(SerializationConfig.Feature.WRITE_DATES_AS_TIMESTAMPS, false);
+		FORMATTED_MAPPER.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
+		FORMATTED_MAPPER.configure(SerializationConfig.Feature.WRITE_DATES_AS_TIMESTAMPS, false);
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class JacksonUtil {
 	 */
 	public static String toJson(Object obj) throws IOException {
 		Preconditions.checkArgument(obj != null, "this argument is required; it must not be null");
-		return defaultMapper.writeValueAsString(obj);
+		return OBJECT_MAPPER.writeValueAsString(obj);
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class JacksonUtil {
 	 */
 	public static <T> T parseJson(String jsonValue, Class<T> valueType) throws IOException {
 		Preconditions.checkArgument(StringUtils.isNotEmpty(jsonValue), "this argument is required; it must not be null");
-		return defaultMapper.readValue(jsonValue, valueType);
+		return OBJECT_MAPPER.readValue(jsonValue, valueType);
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class JacksonUtil {
 	@SuppressWarnings("unchecked")
 	public static <T> T parseJson(String jsonValue, JavaType valueType) throws IOException {
 		Preconditions.checkArgument(StringUtils.isNotEmpty(jsonValue), "this argument is required; it must not be null");
-		return (T) defaultMapper.readValue(jsonValue, valueType);
+		return (T) OBJECT_MAPPER.readValue(jsonValue, valueType);
 	}
 
 	/**
@@ -115,7 +115,7 @@ public class JacksonUtil {
 	 */
 	public static <T> T parseJson(String jsonValue, TypeReference<T> valueTypeRef) throws IOException {
 		Preconditions.checkArgument(StringUtils.isNotEmpty(jsonValue), "this argument is required; it must not be null");
-		return (T) defaultMapper.readValue(jsonValue, valueTypeRef);
+    return OBJECT_MAPPER.readValue(jsonValue, valueTypeRef);
 	}
 
 	/**
@@ -129,7 +129,7 @@ public class JacksonUtil {
 	 */
 	public static String toJsonWithFormat(Object obj) throws IOException {
 		Preconditions.checkArgument(obj != null, "this argument is required; it must not be null");
-		return formatedMapper.writeValueAsString(obj);
+		return FORMATTED_MAPPER.writeValueAsString(obj);
 	}
 
 	/**
@@ -147,7 +147,7 @@ public class JacksonUtil {
 	 */
 	public static <T> T parseJsonWithFormat(String jsonValue, Class<T> valueType) throws IOException {
 		Preconditions.checkArgument(StringUtils.isNotEmpty(jsonValue), "this argument is required; it must not be null");
-		return formatedMapper.readValue(jsonValue, valueType);
+		return FORMATTED_MAPPER.readValue(jsonValue, valueType);
 	}
 
 	/**
@@ -163,7 +163,7 @@ public class JacksonUtil {
 	 */
 	public static <T> T parseJsonWithFormat(String jsonValue, JavaType valueType) throws IOException {
 		Preconditions.checkArgument(StringUtils.isNotEmpty(jsonValue), "this argument is required; it must not be null");
-		return (T) formatedMapper.readValue(jsonValue, valueType);
+    return FORMATTED_MAPPER.readValue(jsonValue, valueType);
 	}
 
 	/**
@@ -179,7 +179,7 @@ public class JacksonUtil {
 	 */
 	public static <T> T parseJsonWithFormat(String jsonValue, TypeReference<T> valueTypeRef) throws IOException {
 		Preconditions.checkArgument(StringUtils.isNotEmpty(jsonValue), "jsonValue is not null");
-		return (T) formatedMapper.readValue(jsonValue, valueTypeRef);
+		return FORMATTED_MAPPER.readValue(jsonValue, valueTypeRef);
 	}
 
 }

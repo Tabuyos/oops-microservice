@@ -3,6 +3,7 @@ package com.tabuyos.microservice.oops.common.core.aspect;
 import com.tabuyos.microservice.oops.common.core.annotation.ValidateAnnotation;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
@@ -32,6 +33,7 @@ import java.lang.reflect.Method;
  * @since 0.1.0 - 2/22/21 9:45 AM
  */
 @Component
+@Aspect
 public class BindingResultAop {
   /**
    * Validate annotation.
@@ -79,7 +81,7 @@ public class BindingResultAop {
   /**
    * 根据目标方法和注解类型  得到该目标方法的指定注解
    */
-  private Annotation getAnnotationByMethod(Method method, Class annoClass) {
+  private Annotation getAnnotationByMethod(Method method, Class<?> annoClass) {
     Annotation[] all = method.getAnnotations();
     for (Annotation annotation : all) {
       if (annotation.annotationType() == annoClass) {
@@ -92,7 +94,7 @@ public class BindingResultAop {
   /**
    * 根据类和方法名得到方法
    */
-  private Method getMethodByClassAndName(Class c, String methodName) {
+  private Method getMethodByClassAndName(Class<?> c, String methodName) {
     Method[] methods = c.getDeclaredMethods();
     for (Method method : methods) {
       if (method.getName().equals(methodName)) {

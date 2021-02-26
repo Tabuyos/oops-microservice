@@ -36,5 +36,7 @@ public class HttpAesException extends IllegalArgumentException {
   }
 
   /** Instantiates a new Http aes exception. */
-  public HttpAesException() {}
+  public HttpAesException() {
+    super();
+  }
 }

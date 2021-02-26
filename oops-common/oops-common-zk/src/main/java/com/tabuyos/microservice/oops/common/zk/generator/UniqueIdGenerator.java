@@ -64,6 +64,7 @@ public class UniqueIdGenerator implements IdGenerator {
    * @return the instance
    */
   public static UniqueIdGenerator getInstance(long appHostId) {
+    // dlc
     if (idGen == null) {
       synchronized (UniqueIdGenerator.class) {
         if (idGen == null) {

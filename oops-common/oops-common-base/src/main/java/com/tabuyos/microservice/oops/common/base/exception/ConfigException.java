@@ -40,5 +40,7 @@ public class ConfigException extends RuntimeException {
   }
 
   /** Instantiates a new Config exception. */
-  public ConfigException() {}
+  public ConfigException() {
+    super();
+  }
 }

@@ -34,3 +34,7 @@ include("oops-tabuyos:graphql")
 include("oops-tabuyos:user")
 include("oops-tabuyos:order")
 include("oops-tabuyos:tabuyos")
+
+include("oops-tabuyos:factories-from")
+include("oops-tabuyos:factories-test")
+include("oops-tabuyos:factories-to")

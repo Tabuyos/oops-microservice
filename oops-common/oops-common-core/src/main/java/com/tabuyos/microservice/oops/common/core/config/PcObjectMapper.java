@@ -39,7 +39,7 @@ public class PcObjectMapper {
 
   private PcObjectMapper() {}
 
-  public static void buidMvcMessageConverter(List<HttpMessageConverter<?>> converters) {
+  public static void buildMvcMessageConverter(List<HttpMessageConverter<?>> converters) {
     MappingJackson2HttpMessageConverter jackson2HttpMessageConverter =
         new MappingJackson2HttpMessageConverter();
     SimpleModule simpleModule = new SimpleModule();

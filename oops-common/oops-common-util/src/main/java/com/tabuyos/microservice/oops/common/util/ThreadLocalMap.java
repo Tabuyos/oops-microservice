@@ -71,9 +71,10 @@ public class ThreadLocalMap {
      */
     @Override
     protected Map<String, Object> initialValue() {
-      return new HashMap<String, Object>(8) {
+      return new HashMap<>(8) {
 
-        @Serial private static final long serialVersionUID = 3637958959138295593L;
+        @Serial
+        private static final long serialVersionUID = 3637958959138295593L;
 
         @Override
         public Object put(String key, Object value) {

@@ -36,8 +36,6 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
   @Override
   public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
     log.info("custom global filter");
-    System.out.println(exchange.toString());
-    System.out.println(chain.toString());
     return chain.filter(exchange);
   }
 

@@ -46,7 +46,7 @@ public class CoreConfiguration {
 
   @Bean
   @ConditionalOnMissingBean(HandlerInterceptor.class)
-  @ConditionalOnProperty(prefix = "paascloud.token.interceptor", name = "enable", havingValue = "true")
+  @ConditionalOnProperty(prefix = "oops.token.interceptor", name = "enable", havingValue = "true")
   public TokenInterceptor tokenInterceptor() {
     return new TokenInterceptor();
   }

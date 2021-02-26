@@ -58,19 +58,19 @@ public class PublicUtil {
    * @return boolean 返回的布尔值
    */
   public static boolean isNotEmpty(Object pObj) {
-    if (pObj == null) {
-      return false;
-    }
-    if (pObj == "") {
-      return false;
-    }
-    if (pObj instanceof String) {
-      return ((String) pObj).length() != 0;
-    } else if (pObj instanceof Collection) {
-      return !((Collection) pObj).isEmpty();
-    } else if (pObj instanceof Map) {
-      return ((Map) pObj).size() != 0;
-    }
-    return true;
+//    if (pObj == null) {
+//      return false;
+//    }
+//    if (pObj == "") {
+//      return false;
+//    }
+//    if (pObj instanceof String) {
+//      return ((String) pObj).length() != 0;
+//    } else if (pObj instanceof Collection) {
+//      return !((Collection) pObj).isEmpty();
+//    } else if (pObj instanceof Map) {
+//      return ((Map) pObj).size() != 0;
+//    }
+    return !isEmpty(pObj);
   }
 }

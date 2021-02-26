@@ -1,5 +1,6 @@
 package com.tabuyos.microservice.oops.common.core.config;
 
+import javax.validation.constraints.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
@@ -8,6 +9,7 @@ import org.springframework.core.task.AsyncTaskExecutor;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
+import org.springframework.lang.NonNullApi;
 
 /**
  * Description:

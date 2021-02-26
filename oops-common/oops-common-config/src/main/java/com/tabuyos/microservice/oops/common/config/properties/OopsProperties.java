@@ -1,5 +1,8 @@
 package com.tabuyos.microservice.oops.common.config.properties;
 
+import com.tabuyos.microservice.oops.common.base.constant.GlobalConstant;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
 /**
  * <p>Description: </p>
  * <pre>
@@ -20,6 +23,7 @@ package com.tabuyos.microservice.oops.common.config.properties;
  * @version 0.1.0
  * @since 0.1.0 - 2/3/21 2:08 PM
  */
+@ConfigurationProperties(prefix = GlobalConstant.ROOT_PREFIX)
 public class OopsProperties {
 
   private ReliableMessageProperties message = new ReliableMessageProperties();

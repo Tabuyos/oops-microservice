@@ -5,6 +5,7 @@ dependencies {
   implementation("org.apache.curator:curator-client")
   implementation("org.apache.curator:curator-recipes")
   implementation("com.alibaba:fastjson:1.2.29")
+  implementation("cn.hutool:hutool-all:5.5.1")
   implementation("org.apache.commons:commons-lang3")
   implementation(project(":oops-common:oops-common-base"))
   implementation(project(":oops-common:oops-common-util"))
