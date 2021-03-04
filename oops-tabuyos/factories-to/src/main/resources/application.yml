@@ -1,2 +1,3 @@
-tabuyos:
-  en:
+spring:
+  datasource:
+    initialization-mode:

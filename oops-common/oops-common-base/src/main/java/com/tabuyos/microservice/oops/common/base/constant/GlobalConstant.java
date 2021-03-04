@@ -47,6 +47,21 @@ public class GlobalConstant {
   public static final int M_SIZE = 1024;
   public static final String ROOT_PREFIX = "oops";
 
+  public static final String OOPS_ALIYUN_PREFIX =  ROOT_PREFIX + Symbol.SPOT + "aliyun";
+  public static final String OOPS_GAO_DE_PREFIX =  ROOT_PREFIX + Symbol.SPOT + "gaode";
+  public static final String OOPS_ASYNC_TASK_PREFIX =  ROOT_PREFIX + Symbol.SPOT + "task";
+  public static final String OOPS_JOB_PREFIX =  ROOT_PREFIX + Symbol.SPOT + "job";
+  public static final String OOPS_QI_NIU_PREFIX =  ROOT_PREFIX + Symbol.SPOT + "qiniu";
+  public static final String OOPS_RELIABLE_MESSAGE_PREFIX =  ROOT_PREFIX + Symbol.SPOT + "message";
+  public static final String OOPS_SWAGGER_PREFIX =  ROOT_PREFIX + Symbol.SPOT + "swagger";
+  public static final String OOPS_ZOOKEEPER_PREFIX =  ROOT_PREFIX + Symbol.SPOT + "zookeeper";
+  public static final String OOPS_OAUTH2_PREFIX =  ROOT_PREFIX + Symbol.SPOT + "oauth2";
+  public static final String OOPS_OAUTH2_CLIENT_PREFIX =  OOPS_OAUTH2_PREFIX + Symbol.SPOT + "client";
+  public static final String OOPS_SECURITY_PREFIX =  ROOT_PREFIX + Symbol.SPOT + "security";
+  public static final String OOPS_SECURITY_SOCIAL_PREFIX =  OOPS_SECURITY_PREFIX + Symbol.SPOT + "social";
+  public static final String OOPS_SECURITY_SOCIAL_QQ_PREFIX =  OOPS_SECURITY_SOCIAL_PREFIX + Symbol.SPOT + "qq";
+  public static final String OOPS_SECURITY_SOCIAL_WEIXIN_PREFIX =  OOPS_SECURITY_SOCIAL_PREFIX + Symbol.SPOT + "weixin";
+
   public static final int EXCEPTION_CAUSE_MAX_LENGTH = 2048;
   public static final int EXCEPTION_MESSAGE_MAX_LENGTH = 2048;
 

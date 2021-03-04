@@ -33,19 +33,26 @@ public class TabuyosRoute {
     return builder
         .routes()
         .route("userRouter",
-            r -> r.path("/user/**")
-                  .filters(
-                      f ->	f.addResponseHeader("X-CustomerHeader", "kite"))
-                  .uri("lb://oops-tabuyos-user"))
+          p -> p.path("/user/**")
+                .filters(
+                  f ->	f.addResponseHeader("X-CustomerHeader", "kite"))
+                .uri("lb://oops-tabuyos-user"))
         .route("orderRouter",
-            r -> r.path("/test/order/**")
-                  .filters(
-                      f -> f.stripPrefix(1))
-                  .uri("lb://oops-tabuyos-order"))
+          p -> p.path("/test/order/**")
+                .filters(
+                  f -> f.stripPrefix(1))
+                .uri("lb://oops-tabuyos-order"))
+        .route("uacRouter",
+          p -> p.path("/uac/**")
+                .uri("lb://oops-provider-uac"))
+        .route("uacRouter",
+          p -> p.path("/testuac/**")
+                .filters(g -> g.circuitBreaker(config -> config.setFallbackUri("https://www.baidu.com")))
+                .uri("lb://oops-provider-test"))
         .route("redirect",
-            p -> p.path("/redirect/**")
-                  .filters(g -> g.addResponseHeader("tabuyos", "tabuyos").redirect(302, "https://www.baidu.com"))
-                  .uri("lb://oops-tabuyos-order"))
+          p -> p.path("/redirect/**")
+                .filters(g -> g.addResponseHeader("tabuyos", "tabuyos").redirect(302, "https://www.baidu.com"))
+                .uri("lb://oops-tabuyos-order"))
         .build();
   }
 }

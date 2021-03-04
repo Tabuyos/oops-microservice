@@ -10,6 +10,7 @@ import org.springframework.cloud.openfeign.security.OAuth2FeignRequestIntercepto
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.Netty4ClientHttpRequestFactory;
+import org.springframework.stereotype.Component;
 
 /**
  * <p>Description: </p>
@@ -31,7 +32,7 @@ import org.springframework.http.client.Netty4ClientHttpRequestFactory;
  * @version 0.1.0
  * @since 0.1.0 - 2/22/21 2:17 PM
  */
-@Configuration
+@Component
 @EnableConfigurationProperties(Oauth2ClientProperties.class)
 public class OAuth2FeignAutoConfiguration {
 

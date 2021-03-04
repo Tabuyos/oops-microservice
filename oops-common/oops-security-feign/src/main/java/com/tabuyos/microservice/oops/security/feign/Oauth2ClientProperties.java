@@ -1,5 +1,6 @@
 package com.tabuyos.microservice.oops.security.feign;
 
+import com.tabuyos.microservice.oops.common.base.constant.GlobalConstant;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
@@ -22,7 +23,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @version 0.1.0
  * @since 0.1.0 - 2/22/21 2:15 PM
  */
-@ConfigurationProperties(prefix = "oops.oauth2.client")
+@ConfigurationProperties(prefix = GlobalConstant.OOPS_OAUTH2_CLIENT_PREFIX)
 public class Oauth2ClientProperties {
   private String id;
   private String accessTokenUrl;

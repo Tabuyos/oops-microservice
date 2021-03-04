@@ -4,10 +4,8 @@ dependencies {
   implementation("org.springframework.boot:spring-boot-starter-data-redis")
   implementation("org.springframework.boot:spring-boot-starter-jdbc")
   implementation("org.mariadb.jdbc:mariadb-java-client:2.6.0")
-//  implementation("org.springframework.social:spring-social-config")
-//  implementation("org.springframework.social:spring-social-core")
-//  implementation("org.springframework.social:spring-social-security")
-//  implementation("org.springframework.social:spring-social-web")
+  implementation("org.springframework.social:spring-social-config:1.1.6.RELEASE")
+  implementation("org.springframework.social:spring-social-security:1.1.6.RELEASE")
   implementation("commons-lang:commons-lang:2.6")
   implementation("commons-collections:commons-collections:3.2.2")
   implementation("commons-beanutils:commons-beanutils:1.9.3")
@@ -18,4 +16,5 @@ dependencies {
   implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
   implementation("com.github.penggle:kaptcha:2.3.2")
   implementation(project(":oops-common:oops-common-util"))
+  implementation(project(":oops-common:oops-common-base"))
 }

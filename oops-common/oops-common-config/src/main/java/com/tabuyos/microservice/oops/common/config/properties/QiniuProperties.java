@@ -1,5 +1,9 @@
 package com.tabuyos.microservice.oops.common.config.properties;
 
+import com.tabuyos.microservice.oops.common.base.constant.GlobalConstant;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
 /**
  * <p>Description: </p>
  * <pre>
@@ -20,6 +24,8 @@ package com.tabuyos.microservice.oops.common.config.properties;
  * @version 0.1.0
  * @since 0.1.0 - 2/3/21 2:10 PM
  */
+@Component
+@ConfigurationProperties(prefix = GlobalConstant.OOPS_QI_NIU_PREFIX)
 public class QiniuProperties {
 
   private QiniuKeyProperties key = new QiniuKeyProperties();

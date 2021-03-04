@@ -1,7 +1,11 @@
 package com.tabuyos.microservice.oops.tabuyos.factories.from;
 
+import com.tabuyos.microservice.oops.tabuyos.factories.from.properties.CoreProperties;
 import com.tabuyos.microservice.oops.tabuyos.factories.from.properties.TabuyosProperties;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -26,7 +30,11 @@ import org.springframework.context.annotation.Configuration;
  * @since 0.1.0 - 2/25/21 4:55 PM
  */
 @Configuration
-@EnableConfigurationProperties(TabuyosProperties.class)
+@ConfigurationPropertiesScan(basePackages = {"com.tabuyos.microservice.oops.tabuyos.factories.from.properties"})
 public class TabuyosConfig {
-
+//  @ConfigurationProperties("tabuyos.core")
+//  @Bean
+//  public CoreProperties coreProperties() {
+//    return new CoreProperties();
+//  }
 }

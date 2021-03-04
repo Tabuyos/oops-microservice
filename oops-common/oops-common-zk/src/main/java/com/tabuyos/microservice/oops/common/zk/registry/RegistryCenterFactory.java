@@ -3,9 +3,6 @@ package com.tabuyos.microservice.oops.common.zk.registry;
 import cn.hutool.crypto.digest.DigestAlgorithm;
 import cn.hutool.crypto.digest.Digester;
 import com.google.common.base.Charsets;
-import com.google.common.hash.HashCode;
-import com.google.common.hash.Hasher;
-import com.google.common.hash.Hashing;
 import com.tabuyos.microservice.oops.common.config.properties.AliyunProperties;
 import com.tabuyos.microservice.oops.common.config.properties.OopsProperties;
 import com.tabuyos.microservice.oops.common.config.properties.ZookeeperProperties;
@@ -14,8 +11,6 @@ import com.tabuyos.microservice.oops.common.zk.registry.base.CoordinatorRegistry
 import com.tabuyos.microservice.oops.common.zk.registry.base.RegisterDto;
 import com.tabuyos.microservice.oops.common.zk.registry.zookeeper.ZookeeperRegistryCenter;
 
-import java.security.MessageDigest;
-import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -86,7 +81,7 @@ public final class RegistryCenterFactory {
     CoordinatorRegistryCenter coordinatorRegistryCenter = createCoordinatorRegistryCenter(oopsProperties.getZk());
     AliyunProperties.RocketMqProperties rocketMq = oopsProperties.getAliyun().getRocketMq();
     String consumerGroup = rocketMq.isReliableMessageConsumer() ? rocketMq.getConsumerGroup() : null;
-    String namesrvAddr = rocketMq.getNamesrvAddr();
+    String namesrvAddr = rocketMq.getNameSrvAddr();
     String producerGroup = rocketMq.isReliableMessageProducer() ? rocketMq.getProducerGroup() : null;
     coordinatorRegistryCenter.registerMq(app, host, producerGroup, consumerGroup, namesrvAddr);
   }

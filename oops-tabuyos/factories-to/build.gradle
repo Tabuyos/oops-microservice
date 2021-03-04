@@ -1,6 +1,6 @@
 dependencies {
   implementation("org.springframework.boot:spring-boot:2.4.2")
   implementation("org.springframework.boot:spring-boot-autoconfigure:2.4.2")
+  implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml")
   implementation(project(":oops-tabuyos:factories-from"))
-  implementation(project(":oops-common:oops-common-config"))
 }

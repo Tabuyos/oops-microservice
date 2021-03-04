@@ -1,0 +1,48 @@
+server:
+  port: 8232
+
+spring:
+  application:
+    name: oops-oauth2-client
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+      exclude: WEB-INF/**
+    livereload:
+      port: 35739
+  security:
+    user:
+      name: root
+      password: root
+  thymeleaf:
+    cache: false
+
+security:
+  oauth2:
+    client:
+      messaging-client-auth-code:
+        client-id: messaging-client
+        client-secret: secret
+        grant-type: authorization_code
+        user-authorization-uri: http://auth-server:8230/oauth/authorize
+        access-token-uri: http://auth-server:8230/oauth/token
+        scope: message.read, message.write
+        pre-established-redirect-uri: http://localhost:8232/token
+        use-current-uri: false
+      messaging-client-client-creds:
+        client-id: messaging-client
+        client-secret: secret
+        grant-type: client_credentials
+        access-token-uri: http://auth-server:8230/oauth/token
+        scope: message.read, message.write
+      messaging-client-password:
+        client-id: messaging-client
+        client-secret: secret
+        grant-type: password
+        access-token-uri: http://auth-server:8230/oauth/token
+        scope: message.read, message.write
+
+messages:
+  base-uri: http://localhost:8231/messages
+

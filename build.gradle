@@ -77,7 +77,7 @@ subprojects {
     test {
         useJUnitPlatform()
         jvmArgs("--illegal-access=deny")
-        jvmArgs("--add-opens", "java.base/java.lang.invoke=ALL-UNNAMED")
+        jvmArgs("--add-opens", "java.base/java.lang=ALL-UNNAMED")
     }
 
     java {

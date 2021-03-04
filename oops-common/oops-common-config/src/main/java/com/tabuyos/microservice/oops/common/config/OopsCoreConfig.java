@@ -1,8 +1,7 @@
 package com.tabuyos.microservice.oops.common.config;
 
-import com.tabuyos.microservice.oops.common.config.properties.OopsProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
+import org.springframework.stereotype.Component;
 
 /**
  * Description:
@@ -27,6 +26,6 @@ import org.springframework.context.annotation.Configuration;
  * @version 0.1.0
  * @since 0.1.0 - 2/3/21 2:07 PM
  */
-//@Configuration
-@EnableConfigurationProperties(OopsProperties.class)
+@Component
+@ConfigurationPropertiesScan(basePackages = {"com.tabuyos.microservice.oops.common.config.properties"})
 public class OopsCoreConfig {}

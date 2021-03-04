@@ -1,7 +1,13 @@
 package com.tabuyos.microservice.oops.common.config.properties;
 
+import com.tabuyos.microservice.oops.common.base.constant.GlobalConstant;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
+
 /**
- * <p>Description: </p>
+ * Description:
+ *
  * <pre>
  *   <b>project: </b><i>tabuyos-microservice</i>
  *   <b>package: </b><i>com.tabuyos.microservice.oops.common.config.properties</i>
@@ -9,17 +15,21 @@ package com.tabuyos.microservice.oops.common.config.properties;
  *   comment here.
  * </pre>
  *
- * @author <pre><b>username: </b><i><a href="http://www.tabuyos.com">Tabuyos</a></i></pre>
- * <pre><b>site: </b><i><a href="http://www.tabuyos.com">http://www.tabuyos.com</a></i></pre>
- * <pre><b>email: </b><i>tabuyos@outlook.com</i></pre>
- * <pre><b>description: </b><i>
+ * @author
+ *     <pre><b>username: </b><i><a href="http://www.tabuyos.com">Tabuyos</a></i></pre>
+ *     <pre><b>site: </b><i><a href="http://www.tabuyos.com">http://www.tabuyos.com</a></i></pre>
+ *     <pre><b>email: </b><i>tabuyos@outlook.com</i></pre>
+ *     <pre><b>description: </b><i>
  *   <pre>
  *     Talk is cheap, show me the code.
  *   </pre>
  * </i></pre>
+ *
  * @version 0.1.0
  * @since 0.1.0 - 2/3/21 2:09 PM
  */
+@Component
+@ConfigurationProperties(prefix = GlobalConstant.OOPS_ALIYUN_PREFIX)
 public class AliyunProperties {
 
   private AliyunKeyProperties key = new AliyunKeyProperties();
@@ -51,14 +61,10 @@ public class AliyunProperties {
   }
 
   static class AliyunKeyProperties {
-    /**
-     * 秘钥id
-     */
+    /** 秘钥id */
     private String accessKeyId;
 
-    /**
-     * 秘钥
-     */
+    /** 秘钥 */
     private String accessKeySecret;
 
     public String getAccessKeyId() {
@@ -79,24 +85,24 @@ public class AliyunProperties {
 
     @Override
     public String toString() {
-      return "AliyunKeyProperties{" +
-        "accessKeyId='" + accessKeyId + '\'' +
-        ", accessKeySecret='" + accessKeySecret + '\'' +
-        '}';
+      return "AliyunKeyProperties{"
+          + "accessKeyId='"
+          + accessKeyId
+          + '\''
+          + ", accessKeySecret='"
+          + accessKeySecret
+          + '\''
+          + '}';
     }
   }
 
   public static class RocketMqProperties {
     private String consumerGroup;
     private String producerGroup;
-    private String namesrvAddr;
-    /**
-     * 生产者是否使用可靠消息, 默认不使用 @MqConsumerStore
-     */
+    private String nameSrvAddr;
+    /** 生产者是否使用可靠消息, 默认不使用 @MqConsumerStore */
     private boolean reliableMessageProducer;
-    /**
-     * 消费者是否使用可靠消息, 默认不使用 @MqProducerStore
-     */
+    /** 消费者是否使用可靠消息, 默认不使用 @MqProducerStore */
     private boolean reliableMessageConsumer;
 
     public String getConsumerGroup() {
@@ -115,12 +121,12 @@ public class AliyunProperties {
       this.producerGroup = producerGroup;
     }
 
-    public String getNamesrvAddr() {
-      return namesrvAddr;
+    public String getNameSrvAddr() {
+      return nameSrvAddr;
     }
 
-    public void setNamesrvAddr(String namesrvAddr) {
-      this.namesrvAddr = namesrvAddr;
+    public void setNameSrvAddr(String nameSrvAddr) {
+      this.nameSrvAddr = nameSrvAddr;
     }
 
     public boolean isReliableMessageProducer() {
@@ -141,36 +147,36 @@ public class AliyunProperties {
 
     @Override
     public String toString() {
-      return "RocketMqProperties{" +
-        "consumerGroup='" + consumerGroup + '\'' +
-        ", producerGroup='" + producerGroup + '\'' +
-        ", namesrvAddr='" + namesrvAddr + '\'' +
-        ", reliableMessageProducer=" + reliableMessageProducer +
-        ", reliableMessageConsumer=" + reliableMessageConsumer +
-        '}';
+      return "RocketMqProperties{"
+          + "consumerGroup='"
+          + consumerGroup
+          + '\''
+          + ", producerGroup='"
+          + producerGroup
+          + '\''
+          + ", namesrvAddr='"
+          + nameSrvAddr
+          + '\''
+          + ", reliableMessageProducer="
+          + reliableMessageProducer
+          + ", reliableMessageConsumer="
+          + reliableMessageConsumer
+          + '}';
     }
   }
 
   static class AliyunSmsProperties {
 
-    /**
-     * 阿里云管理控制台中配置的短信签名（状态必须是验证通过）
-     */
+    /** 阿里云管理控制台中配置的短信签名（状态必须是验证通过） */
     private String signName;
 
-    /**
-     * 机房信息
-     */
+    /** 机房信息 */
     private String regionId;
 
-    /**
-     * 端点
-     */
+    /** 端点 */
     private String endpoint;
 
-    /**
-     * 端点名称
-     */
+    /** 端点名称 */
     private String endpointName;
 
     private String product;
@@ -227,23 +233,31 @@ public class AliyunProperties {
 
     @Override
     public String toString() {
-      return "AliyunSmsProperties{" +
-        "signName='" + signName + '\'' +
-        ", regionId='" + regionId + '\'' +
-        ", endpoint='" + endpoint + '\'' +
-        ", endpointName='" + endpointName + '\'' +
-        ", product='" + product + '\'' +
-        ", domain='" + domain + '\'' +
-        '}';
+      return "AliyunSmsProperties{"
+          + "signName='"
+          + signName
+          + '\''
+          + ", regionId='"
+          + regionId
+          + '\''
+          + ", endpoint='"
+          + endpoint
+          + '\''
+          + ", endpointName='"
+          + endpointName
+          + '\''
+          + ", product='"
+          + product
+          + '\''
+          + ", domain='"
+          + domain
+          + '\''
+          + '}';
     }
   }
 
   @Override
   public String toString() {
-    return "AliyunProperties{" +
-      "key=" + key +
-      ", rocketMq=" + rocketMq +
-      ", sms=" + sms +
-      '}';
+    return "AliyunProperties{" + "key=" + key + ", rocketMq=" + rocketMq + ", sms=" + sms + '}';
   }
 }

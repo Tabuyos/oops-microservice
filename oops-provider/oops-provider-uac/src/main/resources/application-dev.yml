@@ -1,0 +1,16 @@
+server:
+  port: 8338
+
+spring:
+  application:
+    name: oops-provider-uac
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://root:root@oops-eureka:8761/eureka/
+    enabled: true
+  instance:
+    instanceId: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}

@@ -1,0 +1,18 @@
+server:
+  port: 8230
+
+spring:
+  application:
+    name: oops-oauth2-authorization
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+      exclude: WEB-INF/**
+    livereload:
+      port: 35737
+  security:
+    user:
+      name: root
+      password: root
+

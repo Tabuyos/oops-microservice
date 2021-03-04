@@ -1,5 +1,6 @@
 package com.tabuyos.microservice.oops.tabuyos.factories.from.properties;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
@@ -25,7 +26,25 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  */
 @ConfigurationProperties("tabuyos")
 public class TabuyosProperties {
+  private CoreProperties cp = new CoreProperties();
+  private AaronProperties ap = new AaronProperties();
   private String en;
+
+  public CoreProperties getCp() {
+    return cp;
+  }
+
+  public void setCp(CoreProperties cp) {
+    this.cp = cp;
+  }
+
+  public AaronProperties getAp() {
+    return ap;
+  }
+
+  public void setAp(AaronProperties ap) {
+    this.ap = ap;
+  }
 
   public String getEn() {
     return en;
@@ -38,7 +57,68 @@ public class TabuyosProperties {
   @Override
   public String toString() {
     return "TabuyosProperties{" +
-      "en='" + en + '\'' +
+      "cp=" + cp +
+      ", ap=" + ap +
+      ", en='" + en + '\'' +
       '}';
   }
+
+  static class AaronProperties {
+    private String tt;
+    private String ff;
+
+    public String getTt() {
+      return tt;
+    }
+
+    public void setTt(String tt) {
+      this.tt = tt;
+    }
+
+    public String getFf() {
+      return ff;
+    }
+
+    public void setFf(String ff) {
+      this.ff = ff;
+    }
+
+    @Override
+    public String toString() {
+      return "AaronProperties{" +
+        "tt='" + tt + '\'' +
+        ", ff='" + ff + '\'' +
+        '}';
+    }
+  }
+
+  static class AaronLiewProperties {
+    private String tt;
+    private String ff;
+
+    public String getTt() {
+      return tt;
+    }
+
+    public void setTt(String tt) {
+      this.tt = tt;
+    }
+
+    public String getFf() {
+      return ff;
+    }
+
+    public void setFf(String ff) {
+      this.ff = ff;
+    }
+
+    @Override
+    public String toString() {
+      return "AaronProperties{" +
+        "tt='" + tt + '\'' +
+        ", ff='" + ff + '\'' +
+        '}';
+    }
+  }
+
 }

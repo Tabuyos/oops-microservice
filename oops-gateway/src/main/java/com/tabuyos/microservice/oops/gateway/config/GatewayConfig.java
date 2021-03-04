@@ -35,4 +35,6 @@ public class GatewayConfig {
   public GlobalFilter customFilter() {
     return new CustomGlobalFilter();
   }
+
+
 }
