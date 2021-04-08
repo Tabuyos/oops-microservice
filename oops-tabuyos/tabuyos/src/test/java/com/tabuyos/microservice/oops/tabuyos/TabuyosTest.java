@@ -85,7 +85,7 @@ public class TabuyosTest {
     email.setSSLOnConnect(false);
     email.setSmtpPort(587);
     // 用户名和密码为邮箱的账号和授权码（不需要进行base64编码）
-    email.setAuthenticator(new DefaultAuthenticator("tabuyos@outlook.com", "aaronliew95"));
+    email.setAuthenticator(new DefaultAuthenticator("xxxxx@xxxx.com", "xxxxxxxx"));
     //设置来源,就是发送方的邮箱地址
     email.setFrom("tabuyos@outlook.com");
     //设置主题,可以不设置
